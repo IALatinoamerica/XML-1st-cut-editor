@@ -1,0 +1,5 @@
+{
+  "name": "Premiere Silence Cutter",
+  "description": "Upload an Adobe Premiere Pro XML file to automatically detect and cut silent segments, streamlining your editing workflow by splitting clips and removing gaps.",
+  "requestFramePermissions": []
+}
