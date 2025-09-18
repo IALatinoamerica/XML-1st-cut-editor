@@ -1,5 +1,4 @@
 {
-  "name": "Premiere Silence Cutter",
-  "description": "Upload an Adobe Premiere Pro XML file to automatically detect and cut silent segments, streamlining your editing workflow by splitting clips and removing gaps.",
-  "requestFramePermissions": []
+  "name": "Premiere Ripple Delete Assistant",
+  "description": "After manually cutting silences in Premiere Pro, upload your XML to automatically remove all timeline gaps (ripple delete) while keeping everything in sync."
 }
