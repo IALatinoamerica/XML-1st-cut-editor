@@ -1,4 +1,0 @@
-{
-  "name": "Premiere Ripple Delete Assistant",
-  "description": "After manually cutting silences in Premiere Pro, upload your XML to automatically remove all timeline gaps (ripple delete) while keeping everything in sync."
-}
