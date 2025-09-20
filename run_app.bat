@@ -2,7 +2,7 @@
 PUSHD "%~dp0"
 
 SET "EXIT_CODE=0"
-SET "APP_PUSHED="
+SET "TARGET_SCRIPT="
 
 IF NOT EXIST ".venv\Scripts\activate.bat" (
     echo Virtual environment not found. Please run setup_env.bat first.
@@ -16,23 +16,28 @@ IF ERRORLEVEL 1 (
     GOTO error
 )
 
-IF EXIST app (
-    PUSHD app
-    SET "APP_PUSHED=1"
+IF EXIST app\main.py (
+    SET "TARGET_SCRIPT=app\main.py"
+) ELSE (
+    IF EXIST main.py (
+        SET "TARGET_SCRIPT=main.py"
+    ) ELSE (
+        echo Could not find the application entry point (main.py).
+        SET "EXIT_CODE=1"
+        GOTO error
+    )
 )
 
-python main.py
+python "%TARGET_SCRIPT%"
 SET "EXIT_CODE=%ERRORLEVEL%"
 IF NOT "%EXIT_CODE%"=="0" GOTO error
 
-IF DEFINED APP_PUSHED POPD
 POPD
 EXIT /B 0
 
 :error
 echo.
 echo Failed to launch the application.
-IF DEFINED APP_PUSHED POPD
 POPD
 PAUSE
 EXIT /B %EXIT_CODE%
